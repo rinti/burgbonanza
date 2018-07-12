@@ -35,15 +35,12 @@ const gameLoop = () => {
 
     ctx.clearRect(0, 0, 640, 480)
 
-
     currentTime = (new Date()).getTime()
     delta = (currentTime - lastTime) / 1000
 
     entities.map(x => x.update(input, delta)) 
     entities.map(x => x.render(ctx)) 
     entities = entities.filter(x => isNotOutOfBounds(x))
-    console.log(entities.length)
-
 
     lastTime = currentTime
 }
