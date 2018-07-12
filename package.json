@@ -1,0 +1,18 @@
+{
+  "name": "burgbonanza",
+  "version": "1.0.0",
+  "description": "Throw burgers, have fun!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "burgers",
+    "beers"
+  ],
+  "author": "Andreas Bernacca",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.16.0"
+  }
+}
