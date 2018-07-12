@@ -15,11 +15,15 @@ let lastTime = (new Date()).getTime(),
 
 
 const isNotOutOfBounds = (e) => {
+    if(e.constructor.name === 'Player') {
+        return true
+    }
+
     if (e.x > 600 || e.x < 0) {
         return false
     }
     if (e.y > 800 || e.y < 0) {
-        return false;
+        return false
     }
 
     return true
