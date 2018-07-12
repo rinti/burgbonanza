@@ -1,4 +1,5 @@
 import Player from './entities/Player'
+import { InputHandler } from './input'
 
 
 let lastTime = (new Date()).getTime(),
@@ -9,17 +10,21 @@ let lastTime = (new Date()).getTime(),
     fps = 60,
     delta = 0,
     currentTime = 0,
-    entities = [new Player()]
+    entities = [new Player()],
+    input = new InputHandler()
 
 const gameLoop = () => {
     window.requestAnimationFrame(gameLoop)
+
     ctx.clearRect(0, 0, cw, ch)
+    ctx.beginPath()
 
     currentTime = (new Date()).getTime()
     delta = (currentTime - lastTime) / 1000
 
-    entities.map(x => x.update(delta)) 
-    entities.map(x => console.log(x.render(ctx))) 
+    entities.map(x => x.update(input, delta)) 
+
+    entities.map(x => x.render(ctx)) 
 
     lastTime = currentTime
 }
