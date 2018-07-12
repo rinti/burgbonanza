@@ -10,8 +10,8 @@ class Bullet {
     }
 
     update(input, delta) {
-        this.x += 1 * Math.cos(this.rot) * this.speed;
-        this.y += 1 * Math.sin(this.rot) * this.speed;
+        this.x += 1 * Math.cos(this.rot) * this.speed
+        this.y += 1 * Math.sin(this.rot) * this.speed
     }
 
     render(ctx) {

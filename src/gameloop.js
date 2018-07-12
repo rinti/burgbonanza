@@ -13,6 +13,19 @@ let lastTime = (new Date()).getTime(),
     entities = [new Player()],
     input = new InputHandler()
 
+
+const isNotOutOfBounds = (e) => {
+    if (e.x > 600 || e.x < 0) {
+        return false
+    }
+    if (e.y > 800 || e.y < 0) {
+        return false;
+    }
+
+    return true
+}
+
+
 const gameLoop = () => {
     window.requestAnimationFrame(gameLoop)
 
@@ -24,6 +37,8 @@ const gameLoop = () => {
 
     entities.map(x => x.update(input, delta)) 
     entities.map(x => x.render(ctx)) 
+    entities = entities.filter(x => isNotOutOfBounds(x))
+    console.log(entities.length)
 
 
     lastTime = currentTime

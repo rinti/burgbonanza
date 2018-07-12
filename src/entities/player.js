@@ -33,8 +33,6 @@ class Player {
         if(keys.indexOf(KEY.SPACE) >-1) {
             entities.push(new Bullet(this.x, this.y, input.mouseX, input.mouseY))
         }
-
-        console.log("Updating playah!!", input.getPressedKeys())
     }
 
     render(ctx) {
