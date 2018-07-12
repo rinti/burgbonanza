@@ -1,3 +1,3 @@
-import gameLoop from './gameloop'
+import { gameLoop } from './gameloop'
 
 gameLoop()

@@ -21,13 +21,21 @@ class InputHandler {
     constructor() {
         this.pressed = [
         ]
+        this.mouseX = 0
+        this.mouseY = 0
 
         document.addEventListener('keydown', this.keyDown.bind(this))
         document.addEventListener('keyup', this.keyUp.bind(this))
+        document.addEventListener('mousemove', this.mouseMove.bind(this))
     }
 
     getPressedKeys() {
         return this.pressed;
+    }
+
+    mouseMove(evt) {
+        this.mouseX = evt.clientX
+        this.mouseY = evt.clientY
     }
 
     keyDown(evt) {

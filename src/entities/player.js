@@ -1,10 +1,11 @@
 import { KEY } from '../input'
+import Bullet from './bullet'
+import { entities } from '../gameloop'
 
 
 class Player {
     constructor() {
-        this.width = 40
-        this.height = 40
+        this.radius = 20
         this.x = 20
         this.y = 20
         this.speed = 3
@@ -29,13 +30,19 @@ class Player {
             this.y += 1 * this.speed
         }
 
+        if(keys.indexOf(KEY.SPACE) >-1) {
+            entities.push(new Bullet(this.x, this.y, input.mouseX, input.mouseY))
+        }
+
         console.log("Updating playah!!", input.getPressedKeys())
     }
 
     render(ctx) {
-        const { x, y, width, height } = this
+        const { x, y, radius } = this
         
-        ctx.rect(x, y, width, height)
+        ctx.beginPath()
+        ctx.arc(x, y, radius, 0, 2*Math.PI)
+        ctx.strokeStyle = '#bf11a0'
         ctx.stroke()
     }
 }

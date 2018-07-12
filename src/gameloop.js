@@ -16,17 +16,17 @@ let lastTime = (new Date()).getTime(),
 const gameLoop = () => {
     window.requestAnimationFrame(gameLoop)
 
-    ctx.clearRect(0, 0, cw, ch)
-    ctx.beginPath()
+    ctx.clearRect(0, 0, 640, 480)
+
 
     currentTime = (new Date()).getTime()
     delta = (currentTime - lastTime) / 1000
 
     entities.map(x => x.update(input, delta)) 
-
     entities.map(x => x.render(ctx)) 
+
 
     lastTime = currentTime
 }
 
-export default gameLoop
+export { gameLoop, entities }
